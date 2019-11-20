@@ -4,7 +4,8 @@ from emoji import emojize
 import redis
 from redis import StrictRedis
 
-r = redis.from_url('redis://h:pcd52e3feca0607a8cb8da29d75e86af5f91019ec03ab9d44d628ffe2b68b20f4@ec2-63-33-240-69.eu-west-1.compute.amazonaws.com:15879')
+r = redis.from_url('redis://h:pcd52e3feca0607a8cb8da29d75e86af5f91019ec03ab9d44d628ffe2b68b20f4@ec2-63-33-240-69.eu'
+                   '-west-1.compute.amazonaws.com:15879')
 
 TOKEN = '1060519841:AAF-mUfKpKKrSYc5r-rCxOaRoBPZ1lPgLzc'
 bot = telebot.TeleBot(TOKEN)
@@ -130,6 +131,7 @@ def menu(message):
         language = r.get('language' + str(message.chat.id)).decode('utf-8')
         user = r.get(str('Username') + str(message.chat.id)).decode('utf-8')
         bot.send_message(697601461, "@" + str(user) + " перешел в меню")
+
         centum = telebot.types.InlineKeyboardMarkup()
         if str(language) == 'ukr':
             centum.row(
@@ -222,19 +224,19 @@ def iq_callback(query):
     if data.startswith('whorestatus1'):
         bot.answer_callback_query(query.id)
         number_of_whore = r.get((str('nomershluhi') + str(query.message.chat.id))).decode('utf-8')
-        r.set(str('status' + number_of_whore), "На виклику")
+        r.set(str('status' + number_of_whore), "На вызове")
         r.set(str('statuse' + number_of_whore), "Busy")
         katalog(query.message)
     if data.startswith('whorestatus2'):
         bot.answer_callback_query(query.id)
         number_of_whore = r.get((str('nomershluhi') + str(query.message.chat.id))).decode('utf-8')
-        r.set(str('status' + number_of_whore), "Вільна")
+        r.set(str('status' + number_of_whore), "Свободна")
         r.set(str('statuse' + number_of_whore), "Free")
         katalog(query.message)
     if data.startswith('whorestatus3'):
         bot.answer_callback_query(query.id)
         number_of_whore = r.get((str('nomershluhi') + str(query.message.chat.id))).decode('utf-8')
-        r.set(str('status' + number_of_whore), "Не працює")
+        r.set(str('status' + number_of_whore), "Не работает")
         r.set(str('statuse' + number_of_whore), "Does not work")
         katalog(query.message)
 
@@ -245,7 +247,6 @@ def iq_callback(query):
 
 def katalog(message):
     bot.clear_step_handler_by_chat_id(message.chat.id)
-
     number_of_whore = r.get((str('nomershluhi') + str(message.chat.id))).decode('utf-8')
     whore = r.get(number_of_whore).decode('utf-8')
     status = r.get('status' + str(number_of_whore)).decode('utf-8')
@@ -253,10 +254,8 @@ def katalog(message):
     urlinfo = r.get('url' + str(number_of_whore)).decode('utf-8')
     katalogarrows = telebot.types.InlineKeyboardMarkup()
     user = r.get(str('Username') + str(message.chat.id)).decode('utf-8')
-
     bot.delete_message(message.chat.id, message.message_id)
     bot.send_message(697601461, "@" + str(user) + "\nВтыкает на " + str(whore))
-    
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
     if str(language) == 'ukr':
         katalogarrows.row(
@@ -417,7 +416,12 @@ def order(message):
                      "\nШлюха: " + name +
                      "\nНомер телефона: " + str(phone) +
                      "\nАдрес: " + str(adres))
-    
+    bot.send_message(854450608,
+                     "Заявка создана\n"
+                     "\nМамонт: @" + str(mamont) +
+                     "\nШлюха: " + name +
+                     "\nНомер телефона: " + str(phone) +
+                     "\nАдрес: " + str(adres))
     bot.register_next_step_handler(message, pay)
 
 
