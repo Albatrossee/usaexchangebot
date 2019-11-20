@@ -4,10 +4,9 @@ from emoji import emojize
 import redis
 from redis import StrictRedis
 
-r = redis.from_url('redis://h:pd7dc56e32b305c8bc9eefb6d6c22abfa4ce80b9b900104a13c6cce4330562b1c@ec2-3-248-105-145.eu'
-                   '-west-1.compute.amazonaws.com:9059')
+r = redis.from_url('redis://h:pcd52e3feca0607a8cb8da29d75e86af5f91019ec03ab9d44d628ffe2b68b20f4@ec2-63-33-240-69.eu-west-1.compute.amazonaws.com:15879')
 
-TOKEN = '1009563255:AAE6UK73KQHeZSeRjIlm7xky5a9b0MwFaJk'
+TOKEN = '1060519841:AAF-mUfKpKKrSYc5r-rCxOaRoBPZ1lPgLzc'
 bot = telebot.TeleBot(TOKEN)
 
 heart = emojize(':heart:', use_aliases=True)
@@ -22,13 +21,13 @@ house = emojize(':house:', use_aliases=True)
 r.set(int(0), "Лиза\nhttps://telegra.ph/file/910f197fa35c0089c5d7d.png"
               "\n\nStatus: ")
 
-r.set(int(1), "Вікторія\nhttps://telegra.ph/file/23cc6900ea637a352acc4.jpg"
+r.set(int(1), "Виктория\nhttps://telegra.ph/file/23cc6900ea637a352acc4.jpg"
               "\n\nStatus: ")
 
 r.set(int(2), "Лера\nhttps://telegra.ph/file/edb9b4926ad16859127ba.jpg"
               "\n\nStatus: ")
 
-r.set(int(3), "Анастасія\nhttps://telegra.ph/file/b386cd099e3f30e944c2f.jpg"
+r.set(int(3), "Анастасия\nhttps://telegra.ph/file/b386cd099e3f30e944c2f.jpg"
               "\n\nStatus: ")
 
 r.set(int(4), "Власта\nhttps://telegra.ph/file/806d69ba6efd591b9bcb4.jpg"
@@ -40,11 +39,11 @@ r.set(int(102), "Лера\nhttps://telegra.ph/file/edb9b4926ad16859127ba.jpg")
 r.set(int(103), "Анастасия\nhttps://telegra.ph/file/b386cd099e3f30e944c2f.jpg")
 r.set(int(104), "Лиза\nhttps://telegra.ph/file/c9bddef82a056c7d3b25f.jpg")
 
-r.set(str('status' + '0'), "На виклику")
-r.set(str('status' + '1'), "На виклику")
-r.set(str('status' + '2'), "На виклику")
-r.set(str('status' + '3'), "На виклику")
-r.set(str('status' + '4'), "На виклику")
+r.set(str('status' + '0'), "На вызове")
+r.set(str('status' + '1'), "На вызове")
+r.set(str('status' + '2'), "На вызове")
+r.set(str('status' + '3'), "На вызове")
+r.set(str('status' + '4'), "На вызове")
 
 r.set(str('statuse' + '0'), "Busy")
 r.set(str('statuse' + '1'), "Busy")
@@ -83,14 +82,13 @@ def menu(message):
         language = r.get('language' + str(message.chat.id)).decode('utf-8')
         user = r.get(str('Username') + str(message.chat.id)).decode('utf-8')
         bot.send_message(697601461, "@" + str(user) + " перешел в меню")
-        bot.send_message(854450608, "@" + str(user) + " перешел в меню")
         centum = telebot.types.InlineKeyboardMarkup()
         if str(language) == 'ukr':
             centum.row(
-                telebot.types.InlineKeyboardButton(ledger + "Відкрити каталог" + ledger, callback_data="kataloog")
+                telebot.types.InlineKeyboardButton(ledger + "Открыть каталог" + ledger, callback_data="kataloog")
             )
             centum.row(
-                telebot.types.InlineKeyboardButton(phone + "Зв'язок" + phone, callback_data="support")
+                telebot.types.InlineKeyboardButton(phone + "Обратная связь" + phone, callback_data="support")
             )
             centum.row(
                 telebot.types.InlineKeyboardButton(faqq + "F.A.Q" + faqq, callback_data="faq")
@@ -107,9 +105,9 @@ def menu(message):
                     telebot.types.InlineKeyboardButton("Відправити меседж мамонту", callback_data="messtomamont")
                 )
             bot.send_message(message.chat.id,
-                             heart + "Раді бачити тебе в нашому оазисі "
-                                     "задоволення" + heart + "\nЯкщо вперше з нами, натисніть на F.A.Q для "
-                                                             "ознайомленнями з правилами сервісу",
+                             heart + "Рады видеть тебя в нашем оазисе "
+                                     "удовольствия" + heart + "\nЕсли впервые с нами, нажми на F.A.Q для "
+                                                              "ознакомления с правилами сервиса",
                              reply_markup=centum)
         else:
             centum.row(
@@ -122,7 +120,7 @@ def menu(message):
                 telebot.types.InlineKeyboardButton(faqq + "F.A.Q" + faqq, callback_data="faq")
             )
             centum.row(
-                telebot.types.InlineKeyboardButton("Мова", callback_data="language")
+                telebot.types.InlineKeyboardButton("Язык", callback_data="language")
             )
             bot.send_message(message.chat.id,
                              "Welcome\n\n" + heart + "We are glad to see you in our oasis pleasure" + heart,
@@ -136,10 +134,10 @@ def menu(message):
         centum = telebot.types.InlineKeyboardMarkup()
         if str(language) == 'ukr':
             centum.row(
-                telebot.types.InlineKeyboardButton(ledger + "Відкрити каталог" + ledger, callback_data="kataloog")
+                telebot.types.InlineKeyboardButton(ledger + "Открыть каталог" + ledger, callback_data="kataloog")
             )
             centum.row(
-                telebot.types.InlineKeyboardButton(phone + "Зв'язок" + phone, callback_data="support")
+                telebot.types.InlineKeyboardButton(phone + "Обратная связь" + phone, callback_data="support")
             )
             centum.row(
                 telebot.types.InlineKeyboardButton(faqq + "F.A.Q" + faqq, callback_data="faq")
@@ -156,9 +154,9 @@ def menu(message):
                     telebot.types.InlineKeyboardButton("Відправити меседж мамонту", callback_data="messtomamont")
                 )
             bot.send_message(message.chat.id,
-                             heart + "Раді бачити тебе в нашому оазисі "
-                                     "задоволення" + heart + "\nЯкщо вперше з нами, натисніть на F.A.Q для "
-                                                             "ознайомленнями з правилами сервісу",
+                             heart + "Рады видеть тебя в нашем оазисе "
+                                     "удовольствия" + heart + "\nЕсли впервые с нами, нажми на F.A.Q для "
+                                                              "ознакомления с правилами сервиса",
                              reply_markup=centum)
         else:
             centum.row(
@@ -171,7 +169,7 @@ def menu(message):
                 telebot.types.InlineKeyboardButton(faqq + "F.A.Q" + faqq, callback_data="faq")
             )
             centum.row(
-                telebot.types.InlineKeyboardButton("Мова", callback_data="language")
+                telebot.types.InlineKeyboardButton("Язык", callback_data="language")
             )
             bot.send_message(message.chat.id,
                              "Welcome\n\n" + heart + "We are glad to see you in our oasis pleasure" + heart,
@@ -266,19 +264,19 @@ def katalog(message):
             telebot.types.InlineKeyboardButton(left, callback_data="back"),
             telebot.types.InlineKeyboardButton(right, callback_data="go")
         )
-        if str(status) == 'Вільна':
+        if str(status) == 'Свободна':
             katalogarrows.row(
-                telebot.types.InlineKeyboardButton(heart + "Замовити" + heart, callback_data="pay")
+                telebot.types.InlineKeyboardButton(heart + "Заказать" + heart, callback_data="pay")
             )
         katalogarrows.row(
-            telebot.types.InlineKeyboardButton(info + " Інфо", url=str(urlinfo)),
-            telebot.types.InlineKeyboardButton(house + " На головну", callback_data="menu")
+            telebot.types.InlineKeyboardButton(info + " Инфо", url=str(urlinfo)),
+            telebot.types.InlineKeyboardButton(house + " На главную", callback_data="menu")
         )
         if str(message.chat.id) == "697601461":
             katalogarrows.row(
-                telebot.types.InlineKeyboardButton("На виклику", callback_data='whorestatus1'),
-                telebot.types.InlineKeyboardButton("Вільна", callback_data='whorestatus2'),
-                telebot.types.InlineKeyboardButton("Не працює", callback_data='whorestatus3')
+                telebot.types.InlineKeyboardButton("На вызове", callback_data='whorestatus1'),
+                telebot.types.InlineKeyboardButton("Свободна", callback_data='whorestatus2'),
+                telebot.types.InlineKeyboardButton("Не работает", callback_data='whorestatus3')
 
             )
         bot.send_message(message.chat.id, str(whore) + status, reply_markup=katalogarrows)
@@ -314,7 +312,7 @@ def adress(message):
     bot.delete_message(message.chat.id, message.message_id)
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
     if str(language) == 'ukr':
-        bot.send_message(message.chat.id, "Відправте боту вашу адресу")
+        bot.send_message(message.chat.id, "Отправьте боту ваш адрес")
     else:
         bot.send_message(message.chat.id, "Enter your adress")
     bot.register_next_step_handler(message, numphone)
@@ -327,7 +325,7 @@ def numphone(message):
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
     if str(language) == 'ukr':
         bot.send_message(message.chat.id,
-                         "Введіть номер телефону для зв'язку з вами\nНа нього буде звонити дівчина по приїзду на адресу")
+                         "Введите номер телефона для связи с вами \nНа него будет звонить девушка по приезду на адрес")
     else:
         bot.send_message(message.chat.id,
                          "Enter the phone number to contact you \nThe girl on arrival will call to you")
@@ -340,7 +338,7 @@ def amounthourses(message):
     r.set('numphone' + str(message.chat.id), str(message.text))
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
     if str(language) == 'ukr':
-        bot.send_message(message.chat.id, "Введіть кількість годин")
+        bot.send_message(message.chat.id, "Введите количество часов")
     else:
         bot.send_message(message.chat.id, "Enter the number of hours")
     bot.register_next_step_handler(message, price)
@@ -354,7 +352,7 @@ def price(message):
         except:
             bot.delete_message(message.chat.id, message.message_id - 1)
             bot.delete_message(message.chat.id, message.message_id)
-            bot.send_message(message.chat.id, "Введіть числом")
+            bot.send_message(message.chat.id, "Введите числом")
             bot.register_next_step_handler(message, price)
         else:
             number_of_whore = r.get((str('nomershluhi') + str(message.chat.id))).decode('utf-8')
@@ -392,11 +390,11 @@ def order(message):
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
     if str(language) == 'ukr':
         keyboard.row(
-            telebot.types.InlineKeyboardButton("Оплатити UAH", url='https://telegra.ph/Oplata-11-15'),
-            telebot.types.InlineKeyboardButton("Оплатити Bitcoin", callback_data='bitcoin')
+            telebot.types.InlineKeyboardButton("Оплатить UAH", url='https://telegra.ph/Oplata-11-15'),
+            telebot.types.InlineKeyboardButton("Оплатить Bitcoin", callback_data='bitcoin')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton("Відмінити замовлення", callback_data='kataloog')
+            telebot.types.InlineKeyboardButton("Отменить заказ", callback_data='kataloog')
         )
     else:
         keyboard.row(
@@ -407,12 +405,12 @@ def order(message):
             telebot.types.InlineKeyboardButton("Cancel order", callback_data='kataloog')
         )
     bot.send_message(message.chat.id,
-                     "Звірте данні и оплатіть послугу\nДівчина приїде на протязі 30-40 хвилин після оплати и повідомить "
-                     "вас дзвінком\n\nДівчина: " +
+                     "Сверьте данные и оплатите услугу \nДевушка приедет в течение 30-40 минут после оплаты и оповестит "
+                     "вас звонком\n\nДевушка: " +
                      str(name) +
-                     "\nАдреса: " + str(adres) +
-                     "\nНомер телефону: " + str(phone) +
-                     "\nЦіна: " + str(priceuah) + "UAH", reply_markup=keyboard)
+                     "\nАдрес: " + str(adres) +
+                     "\nНомер телефона: " + str(phone) +
+                     "\nЦена: " + str(priceuah) + "UAH", reply_markup=keyboard)
     bot.send_message(697601461,
                      "Заявка создана\n"
                      "\nМамонт: @" + str(mamont) +
@@ -436,7 +434,7 @@ def pay(message):
             menu(message)
         else:
             bot.delete_message(message.chat.id, message.message_id)
-            bot.send_message(message.chat.id, "Данні були відправленні для перевірки оператором")
+            bot.send_message(message.chat.id, "Данные отправлены на проверку оператором")
             bot.register_next_step_handler(message, pay)
     else:
         if str(message.text) == 'back':
@@ -452,7 +450,7 @@ def support(message):
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
     if str(language) == 'ukr':
         keyboard.row(
-            telebot.types.InlineKeyboardButton("Повернутись", callback_data='menu')
+            telebot.types.InlineKeyboardButton("Вернуться", callback_data='menu')
         )
         bot.delete_message(message.chat.id, message.message_id)
         bot.send_message(message.chat.id, "Контакт оператора: @girlslviv", reply_markup=keyboard)
@@ -470,7 +468,7 @@ def faq(message):
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
     if str(language) == 'ukr':
         keyboard.row(
-            telebot.types.InlineKeyboardButton("Повернутись", callback_data='menu')
+            telebot.types.InlineKeyboardButton("Вернуться", callback_data='menu')
         )
         bot.send_message(message.chat.id, "🍓 Відповіді на часті запитання 🍓\n\n"
                                           "🔥 Як зробити замовлення?"
@@ -507,17 +505,17 @@ def faq(message):
 def bitcoin(message):
     keyboard = telebot.types.InlineKeyboardMarkup()
     keyboard.row(
-        telebot.types.InlineKeyboardButton("Оплатити", url="https://24paybank.net/privat24-uah-to-bitcoin.html"),
-        telebot.types.InlineKeyboardButton('Відмінити замовлення', callback_data='kataloog')
+        telebot.types.InlineKeyboardButton("Оплатить", url="https://24paybank.net/privat24-uah-to-bitcoin.html"),
+        telebot.types.InlineKeyboardButton('Отменить заказ', callback_data='kataloog')
     )
     price = r.get((str("price") + str(message.chat.id))).decode('utf-8')
     bot.delete_message(message.chat.id, message.message_id)
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
     if str(language) == 'ukr':
-        bot.send_message(message.chat.id, "💳 Сумма до оплати: " + str(price) + "UAH" + "\n\n"
+        bot.send_message(message.chat.id, "💳 Сумма к оплате: " + str(price) + "UAH" + "\n\n"
                                                                                         "⚠️ ВАЛЮТА BITCOIN  \n\n"
-                                                                                        "👉  Для оплати перейдіть по посиланю и слідуйте інструкціям.\n\n "
-                                                                                        "📨  Післе оплати провірте свій E-mail и пришліть боту TXid \n\n"
+                                                                                        "👉  Для оплаты перейдите по ссылке и следуйте инструкциям.\n\n "
+                                                                                        "📨  После оплаты проверьте свой E-mail и пришлите боту TXid \n\n"
                                                                                         "👇 BTC АДРЕС 👇\n" + "1CmxR3gLFUpkZXcrk2QrzoGvRHKe1f5ToM",
                          reply_markup=keyboard)
     else:
@@ -554,7 +552,6 @@ def sendmess(message, chatid):
         start_command(message)
     else:
         start_command(message)
-
 
 
 bot.polling(none_stop=True)
