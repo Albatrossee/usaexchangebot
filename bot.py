@@ -4,8 +4,7 @@ from emoji import emojize
 import redis
 from redis import StrictRedis
 
-r = redis.from_url('redis://h:pcd52e3feca0607a8cb8da29d75e86af5f91019ec03ab9d44d628ffe2b68b20f4@ec2-63-33-240-69.eu'
-                   '-west-1.compute.amazonaws.com:15879')
+r = redis.from_url('redis://h:pd8413eb18748385d419b18909bd53927c1a218a1cc3160a9a2de6971a904056b@ec2-63-34-19-185.eu-west-1.compute.amazonaws.com:27139')
 
 TOKEN = '1060519841:AAF-mUfKpKKrSYc5r-rCxOaRoBPZ1lPgLzc'
 bot = telebot.TeleBot(TOKEN)
