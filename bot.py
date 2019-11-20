@@ -130,7 +130,6 @@ def menu(message):
         language = r.get('language' + str(message.chat.id)).decode('utf-8')
         user = r.get(str('Username') + str(message.chat.id)).decode('utf-8')
         bot.send_message(697601461, "@" + str(user) + " перешел в меню")
-        bot.send_message(854450608, "@" + str(user) + " перешел в меню")
         centum = telebot.types.InlineKeyboardMarkup()
         if str(language) == 'ukr':
             centum.row(
@@ -257,7 +256,7 @@ def katalog(message):
 
     bot.delete_message(message.chat.id, message.message_id)
     bot.send_message(697601461, "@" + str(user) + "\nВтыкает на " + str(whore))
-    bot.send_message(854450608, "@" + str(user) + "\nВтыкает на " + str(whore))
+    
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
     if str(language) == 'ukr':
         katalogarrows.row(
@@ -418,12 +417,7 @@ def order(message):
                      "\nШлюха: " + name +
                      "\nНомер телефона: " + str(phone) +
                      "\nАдрес: " + str(adres))
-    bot.send_message(854450608,
-                     "Заявка создана\n"
-                     "\nМамонт: @" + str(mamont) +
-                     "\nШлюха: " + name +
-                     "\nНомер телефона: " + str(phone) +
-                     "\nАдрес: " + str(adres))
+    
     bot.register_next_step_handler(message, pay)
 
 
