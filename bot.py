@@ -328,7 +328,6 @@ def katalog(message):
             )
         bot.send_message(message.chat.id, str(whore) + statuse, reply_markup=katalogarrows)
 
-
 def adress(message):
     bot.delete_message(message.chat.id, message.message_id)
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
@@ -336,44 +335,49 @@ def adress(message):
         bot.send_message(message.chat.id, "Отправьте боту ваш адрес")
     else:
         bot.send_message(message.chat.id, "Enter your adress")
+    print (str(message.message_id))
+    r.set('messid' + str(message.chat.id), str(message.message_id))
     bot.register_next_step_handler(message, numphone)
 
 
 def numphone(message):
     r.set('adress' + str(message.chat.id), str(message.text))
-    bot.delete_message(message.chat.id, message.message_id - 1)
     bot.delete_message(message.chat.id, message.message_id)
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
     if str(language) == 'ukr':
-        bot.send_message(message.chat.id,
-                         "Введите номер телефона для связи с вами \nНа него будет звонить девушка по приезду на адрес")
+        bot.edit_message_text(chat_id=message.chat.id, message_id=message.message_id - 1, text='Введите номер телефона для связи с вами \nНа '
+                                                                       'него будет звонить девушка по приезду на '
+                                                                       'адрес')
     else:
-        bot.send_message(message.chat.id,
-                         "Enter the phone number to contact you \nThe girl on arrival will call to you")
+        bot.edit_message_text(chat_id=message.chat.id, message_id=message.message_id - 1,
+                              text="Enter the phone number to contact you \nThe girl on arrival will call to you")
     bot.register_next_step_handler(message, amounthourses)
 
 
 def amounthourses(message):
-    bot.delete_message(message.chat.id, message.message_id - 1)
     bot.delete_message(message.chat.id, message.message_id)
     r.set('numphone' + str(message.chat.id), str(message.text))
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
     if str(language) == 'ukr':
-        bot.send_message(message.chat.id, "Введите количество часов")
+        bot.edit_message_text(chat_id=message.chat.id, message_id=message.message_id - 2,
+                              text="Введите количество часов")
     else:
-        bot.send_message(message.chat.id, "Enter the number of hours")
+
+        bot.edit_message_text(chat_id=message.chat.id, message_id=message.message_id - 2, text="Enter the number of hours")
     bot.register_next_step_handler(message, price)
 
 
 def price(message):
+    messid = r.get('messid' + str(message.chat.id)).decode('utf-8')
+    messid = int(messid)
+    messid += 1
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
     if str(language) == 'ukr':
         try:
             amount = int(message.text)
         except:
-            bot.delete_message(message.chat.id, message.message_id - 1)
             bot.delete_message(message.chat.id, message.message_id)
-            bot.send_message(message.chat.id, "Введите числом")
+            bot.edit_message_text(chat_id=message.chat.id, message_id=str(messid), text="Введите числом")
             bot.register_next_step_handler(message, price)
         else:
             number_of_whore = r.get((str('nomershluhi') + str(message.chat.id))).decode('utf-8')
@@ -385,9 +389,8 @@ def price(message):
         try:
             amount = int(message.text)
         except:
-            bot.delete_message(message.chat.id, message.message_id - 1)
             bot.delete_message(message.chat.id, message.message_id)
-            bot.send_message(message.chat.id, "Please enter a number")
+            bot.edit_message_text(chat_id=message.chat.id, message_id=str(messid), text="Please enter a number")
             bot.register_next_step_handler(message, price)
         else:
             number_of_whore = r.get((str('nomershluhi') + str(message.chat.id))).decode('utf-8')
@@ -398,7 +401,10 @@ def price(message):
 
 
 def order(message):
-    bot.delete_message(message.chat.id, message.message_id - 1)
+    messid = r.get('messid' + str(message.chat.id)).decode('utf-8')
+    messid = int(messid)
+    messid += 1
+    bot.delete_message(message.chat.id, messid)
     bot.delete_message(message.chat.id, message.message_id)
     number_of_whore = r.get((str('nomershluhi') + str(message.chat.id))).decode('utf-8')
     phone = r.get('numphone' + str(message.chat.id)).decode('utf-8')
