@@ -42,7 +42,7 @@ r.set(int(6), "Эмилия\nhttps://telegra.ph/file/f84d6473133f070f0c07f.png"
 r.set(int(7), "Кристина\nhttps://telegra.ph/file/f35095123620006a9949b.png"
               "\n\nStatus: ")
 
-r.set(int(100), "Милана\nhttps://telegra.ph/file/c9bddef82a056c7d3b25f.jpg")
+r.set(int(100), "Милана\nhttps://telegra.ph/file/fb134b7947d17e4522981.png")
 r.set(int(101), "Софи\nhttps://telegra.ph/file/2848b75621de5868a9814.png")
 r.set(int(102), "Оксана\nhttps://telegra.ph/file/59880dca747f0556b3948.png")
 r.set(int(103), "Катя\nhttps://telegra.ph/file/ca80128b279ebe9baa75c.png")
