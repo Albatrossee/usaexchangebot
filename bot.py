@@ -18,50 +18,74 @@ faqq = emojize(':page_facing_up:', use_aliases=True)
 info = emojize(':information:', use_aliases=True)
 house = emojize(':house:', use_aliases=True)
 
-r.set(int(0), "Лиза\nhttps://telegra.ph/file/910f197fa35c0089c5d7d.png"
+r.set(int(0), "Милана\nhttps://telegra.ph/file/fb134b7947d17e4522981.png"
               "\n\nStatus: ")
 
-r.set(int(1), "Виктория\nhttps://telegra.ph/file/23cc6900ea637a352acc4.jpg"
+r.set(int(1), "Софи\nhttps://telegra.ph/file/2848b75621de5868a9814.png"
               "\n\nStatus: ")
 
-r.set(int(2), "Лера\nhttps://telegra.ph/file/edb9b4926ad16859127ba.jpg"
+r.set(int(2), "Оксана\nhttps://telegra.ph/file/59880dca747f0556b3948.png"
               "\n\nStatus: ")
 
-r.set(int(3), "Анастасия\nhttps://telegra.ph/file/b386cd099e3f30e944c2f.jpg"
+r.set(int(3), "Катя\nhttps://telegra.ph/file/ca80128b279ebe9baa75c.png"
               "\n\nStatus: ")
 
-r.set(int(4), "Власта\nhttps://telegra.ph/file/806d69ba6efd591b9bcb4.jpg"
+r.set(int(4), "Ангелина\nhttps://telegra.ph/file/8a5f9b05dd12382f02079.png"
               "\n\nStatus: ")
 
-r.set(int(100), "Лиза\nhttps://telegra.ph/file/c9bddef82a056c7d3b25f.jpg")
-r.set(int(101), "Виктория\nhttps://telegra.ph/file/23cc6900ea637a352acc4.jpg")
-r.set(int(102), "Лера\nhttps://telegra.ph/file/edb9b4926ad16859127ba.jpg")
-r.set(int(103), "Анастасия\nhttps://telegra.ph/file/b386cd099e3f30e944c2f.jpg")
-r.set(int(104), "Лиза\nhttps://telegra.ph/file/c9bddef82a056c7d3b25f.jpg")
+r.set(int(5), "Натали\nhttps://telegra.ph/file/1fdee4e1121774358a69b.png"
+              "\n\nStatus: ")
+
+r.set(int(6), "Эмилия\nhttps://telegra.ph/file/f84d6473133f070f0c07f.png"
+              "\n\nStatus: ")
+
+r.set(int(7), "Кристина\nhttps://telegra.ph/file/f35095123620006a9949b.png"
+              "\n\nStatus: ")
+
+r.set(int(100), "Милана\nhttps://telegra.ph/file/c9bddef82a056c7d3b25f.jpg")
+r.set(int(101), "Софи\nhttps://telegra.ph/file/2848b75621de5868a9814.png")
+r.set(int(102), "Оксана\nhttps://telegra.ph/file/59880dca747f0556b3948.png")
+r.set(int(103), "Катя\nhttps://telegra.ph/file/ca80128b279ebe9baa75c.png")
+r.set(int(104), "Ангелина\nhttps://telegra.ph/file/8a5f9b05dd12382f02079.png")
+r.set(int(105), "Натали\nhttps://telegra.ph/file/1fdee4e1121774358a69b.png")
+r.set(int(106), "Эмилия\nhttps://telegra.ph/file/f84d6473133f070f0c07f.png")
+r.set(int(107), "Кристина\nhttps://telegra.ph/file/f35095123620006a9949b.png")
 
 r.set(str('status' + '0'), "На вызове")
 r.set(str('status' + '1'), "На вызове")
 r.set(str('status' + '2'), "На вызове")
 r.set(str('status' + '3'), "На вызове")
 r.set(str('status' + '4'), "На вызове")
+r.set(str('status' + '5'), "На вызове")
+r.set(str('status' + '6'), "На вызове")
+r.set(str('status' + '7'), "На вызове")
 
 r.set(str('statuse' + '0'), "Busy")
 r.set(str('statuse' + '1'), "Busy")
 r.set(str('statuse' + '2'), "Busy")
 r.set(str('statuse' + '3'), "Busy")
 r.set(str('statuse' + '4'), "Busy")
+r.set(str('statuse' + '5'), "Busy")
+r.set(str('statuse' + '6'), "Busy")
+r.set(str('statuse' + '7'), "Busy")
 
-r.set(str('url' + '0'), "https://telegra.ph/Liza-11-15-2")
-r.set(str('url' + '1'), "https://telegra.ph/Viktoriya-11-15-3")
-r.set(str('url' + '2'), "https://telegra.ph/Lera-11-15-5")
-r.set(str('url' + '3'), "https://telegra.ph/Anastasiya-11-15-3")
-r.set(str('url' + '4'), "https://telegra.ph/Vlasta-11-15")
+r.set(str('url' + '0'), "https://telegra.ph/Milana-11-23")
+r.set(str('url' + '1'), "https://telegra.ph/Sofi-11-23")
+r.set(str('url' + '2'), "https://telegra.ph/Oksana-11-23-2")
+r.set(str('url' + '3'), "https://telegra.ph/Katya-11-23-3")
+r.set(str('url' + '4'), "https://telegra.ph/Angelina-11-23-2")
+r.set(str('url' + '5'), "https://telegra.ph/Natali-11-23-2")
+r.set(str('url' + '6'), "https://telegra.ph/EHmiliya-11-23")
+r.set(str('url' + '7'), "https://telegra.ph/Kristina-11-23-8")
 
 r.set('price0', int(2500))
-r.set('price1', int(2800))
-r.set('price2', int(1800))
+r.set('price1', int(2500))
+r.set('price2', int(2500))
 r.set('price3', int(2500))
 r.set('price4', int(2500))
+r.set('price5', int(2500))
+r.set('price6', int(2500))
+r.set('price7', int(3700))
 
 
 @bot.message_handler(commands=['start'])
@@ -211,11 +235,11 @@ def iq_callback(query):
         if int(r.get((str("nomershluhi") + str(query.message.chat.id)))) > 0:
             r.decr((str("nomershluhi") + str(query.message.chat.id)), 1)
         else:
-            r.set((str("nomershluhi") + str(query.message.chat.id)), int(4))
+            r.set((str("nomershluhi") + str(query.message.chat.id)), int(7))
         katalog(query.message)
     if data.startswith('go'):
         bot.answer_callback_query(query.id)
-        if int(r.get((str("nomershluhi") + str(query.message.chat.id)))) < 4:
+        if int(r.get((str("nomershluhi") + str(query.message.chat.id)))) < 7:
             r.incr((str("nomershluhi") + str(query.message.chat.id)), 1)
         else:
             r.set((str("nomershluhi") + str(query.message.chat.id)), int(0))
