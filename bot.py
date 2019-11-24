@@ -18,22 +18,22 @@ faqq = emojize(':page_facing_up:', use_aliases=True)
 info = emojize(':information:', use_aliases=True)
 house = emojize(':house:', use_aliases=True)
 
-r.set(int(0), "Милана\nhttps://telegra.ph/file/fb134b7947d17e4522981.png"
+r.set(int(0), "Лера\nhttps://telegra.ph/file/fb134b7947d17e4522981.png"
               "\n\nStatus: ")
 
 r.set(int(1), "Софи\nhttps://telegra.ph/file/2848b75621de5868a9814.png"
               "\n\nStatus: ")
 
-r.set(int(2), "Оксана\nhttps://telegra.ph/file/59880dca747f0556b3948.png"
+r.set(int(2), "Виктория\nhttps://telegra.ph/file/59880dca747f0556b3948.png"
               "\n\nStatus: ")
 
-r.set(int(3), "Катя\nhttps://telegra.ph/file/ca80128b279ebe9baa75c.png"
+r.set(int(3), "Лиза\nhttps://telegra.ph/file/ca80128b279ebe9baa75c.png"
               "\n\nStatus: ")
 
-r.set(int(4), "Ангелина\nhttps://telegra.ph/file/8a5f9b05dd12382f02079.png"
+r.set(int(4), "Власта\nhttps://telegra.ph/file/8a5f9b05dd12382f02079.png"
               "\n\nStatus: ")
 
-r.set(int(5), "Натали\nhttps://telegra.ph/file/1fdee4e1121774358a69b.png"
+r.set(int(5), "Ангелина\nhttps://telegra.ph/file/1fdee4e1121774358a69b.png"
               "\n\nStatus: ")
 
 r.set(int(6), "Эмилия\nhttps://telegra.ph/file/f84d6473133f070f0c07f.png"
@@ -42,12 +42,12 @@ r.set(int(6), "Эмилия\nhttps://telegra.ph/file/f84d6473133f070f0c07f.png"
 r.set(int(7), "Кристина\nhttps://telegra.ph/file/f35095123620006a9949b.png"
               "\n\nStatus: ")
 
-r.set(int(100), "Милана\nhttps://telegra.ph/file/fb134b7947d17e4522981.png")
+r.set(int(100), "Лера\nhttps://telegra.ph/file/fb134b7947d17e4522981.png")
 r.set(int(101), "Софи\nhttps://telegra.ph/file/2848b75621de5868a9814.png")
-r.set(int(102), "Оксана\nhttps://telegra.ph/file/59880dca747f0556b3948.png")
-r.set(int(103), "Катя\nhttps://telegra.ph/file/ca80128b279ebe9baa75c.png")
-r.set(int(104), "Ангелина\nhttps://telegra.ph/file/8a5f9b05dd12382f02079.png")
-r.set(int(105), "Натали\nhttps://telegra.ph/file/1fdee4e1121774358a69b.png")
+r.set(int(102), "Виктория\nhttps://telegra.ph/file/59880dca747f0556b3948.png")
+r.set(int(103), "Лиза\nhttps://telegra.ph/file/ca80128b279ebe9baa75c.png")
+r.set(int(104), "Власта\nhttps://telegra.ph/file/8a5f9b05dd12382f02079.png")
+r.set(int(105), "Ангелина\nhttps://telegra.ph/file/1fdee4e1121774358a69b.png")
 r.set(int(106), "Эмилия\nhttps://telegra.ph/file/f84d6473133f070f0c07f.png")
 r.set(int(107), "Кристина\nhttps://telegra.ph/file/f35095123620006a9949b.png")
 
