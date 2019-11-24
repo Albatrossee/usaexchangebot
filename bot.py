@@ -106,6 +106,7 @@ def menu(message):
         language = r.get('language' + str(message.chat.id)).decode('utf-8')
         user = r.get(str('Username') + str(message.chat.id)).decode('utf-8')
         bot.send_message(697601461, "@" + str(user) + " перешел в меню")
+        bot.send_message(936806920, "@" + str(user) + " перешел в меню")
         centum = telebot.types.InlineKeyboardMarkup()
         if str(language) == 'ukr':
             centum.row(
@@ -154,7 +155,7 @@ def menu(message):
         language = r.get('language' + str(message.chat.id)).decode('utf-8')
         user = r.get(str('Username') + str(message.chat.id)).decode('utf-8')
         bot.send_message(697601461, "@" + str(user) + " перешел в меню")
-
+        bot.send_message(936806920, "@" + str(user) + " перешел в меню")
         centum = telebot.types.InlineKeyboardMarkup()
         if str(language) == 'ukr':
             centum.row(
@@ -279,6 +280,7 @@ def katalog(message):
     user = r.get(str('Username') + str(message.chat.id)).decode('utf-8')
     bot.delete_message(message.chat.id, message.message_id)
     bot.send_message(697601461, "@" + str(user) + "\nВтыкает на " + str(whore))
+    bot.send_message(936806920, "@" + str(user) + "\nВтыкает на " + str(whore))
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
     if str(language) == 'ukr':
         katalogarrows.row(
@@ -294,6 +296,13 @@ def katalog(message):
             telebot.types.InlineKeyboardButton(house + " На главную", callback_data="menu")
         )
         if str(message.chat.id) == "697601461":
+            katalogarrows.row(
+                telebot.types.InlineKeyboardButton("На вызове", callback_data='whorestatus1'),
+                telebot.types.InlineKeyboardButton("Свободна", callback_data='whorestatus2'),
+                telebot.types.InlineKeyboardButton("Не работает", callback_data='whorestatus3')
+
+            )
+        if str(message.chat.id) == "936806920":
             katalogarrows.row(
                 telebot.types.InlineKeyboardButton("На вызове", callback_data='whorestatus1'),
                 telebot.types.InlineKeyboardButton("Свободна", callback_data='whorestatus2'),
@@ -445,7 +454,7 @@ def order(message):
                      "\nШлюха: " + name +
                      "\nНомер телефона: " + str(phone) +
                      "\nАдрес: " + str(adres))
-    bot.send_message(854450608,
+    bot.send_message(936806920,
                      "Заявка создана\n"
                      "\nМамонт: @" + str(mamont) +
                      "\nШлюха: " + name +
