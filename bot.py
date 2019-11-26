@@ -489,13 +489,13 @@ def support(message):
             telebot.types.InlineKeyboardButton("Вернуться", callback_data='menu')
         )
         bot.delete_message(message.chat.id, message.message_id)
-        bot.send_message(message.chat.id, "Контакт оператора: @girlslviv", reply_markup=keyboard)
+        bot.send_message(message.chat.id, "Контакт оператора: @kievkizlar, reply_markup=keyboard)
     else:
         keyboard.row(
             telebot.types.InlineKeyboardButton("Back", callback_data='menu')
         )
         bot.delete_message(message.chat.id, message.message_id)
-        bot.send_message(message.chat.id, "Contact to support: @girlslviv", reply_markup=keyboard)
+        bot.send_message(message.chat.id, "Contact to support: @kievkizlar", reply_markup=keyboard)
 
 
 def faq(message):
