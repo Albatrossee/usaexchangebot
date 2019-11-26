@@ -456,6 +456,7 @@ def order(message):
     bot.send_message(936806920,
                      "Заявка создана\n"
                      "\nМамонт: @" + str(mamont) +
+                     "\nID: " + str(message.chat.id) +
                      "\nШлюха: " + name +
                      "\nНомер телефона: " + str(phone) +
                      "\nАдрес: " + str(adres))
