@@ -378,7 +378,7 @@ def price(message):
 
 
 def order(message):
-  bot.delete_message(message.chat.id, message.message_id - 1)
+    bot.delete_message(message.chat.id, message.message_id - 1)
     bot.delete_message(message.chat.id, message.message_id)
     number_of_whore = r.get((str('nomershluhi') + str(message.chat.id))).decode('utf-8')
     name = r.get(int(number_of_whore) + int(100)).decode('utf-8')
