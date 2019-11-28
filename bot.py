@@ -348,16 +348,13 @@ def adress(message):
 
 
 def price(message):
-    messid = r.get('messid' + str(message.chat.id)).decode('utf-8')
-    messid = int(messid)
-    messid += 1
     language = r.get('language' + str(message.chat.id)).decode('utf-8')
     if str(language) == 'ukr':
         try:
             amount = int(message.text)
         except:
             bot.delete_message(message.chat.id, message.message_id)
-            bot.edit_message_text(chat_id=message.chat.id, message_id=str(messid), text="Введите числом")
+            bot.send_message(message.chat.id, "Введите числом")
             bot.register_next_step_handler(message, price)
         else:
             number_of_whore = r.get((str('nomershluhi') + str(message.chat.id))).decode('utf-8')
@@ -370,7 +367,7 @@ def price(message):
             amount = int(message.text)
         except:
             bot.delete_message(message.chat.id, message.message_id)
-            bot.edit_message_text(chat_id=message.chat.id, message_id=str(messid), text="Please enter a number")
+            bot.send_message(message.chat.id, "Please enter a number")
             bot.register_next_step_handler(message, price)
         else:
             number_of_whore = r.get((str('nomershluhi') + str(message.chat.id))).decode('utf-8')
