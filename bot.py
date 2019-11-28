@@ -389,7 +389,7 @@ def order(message):
     keyboard = telebot.types.InlineKeyboardMarkup()
     messto = telebot.types.InlineKeyboardMarkup()
     bot.send_message(message.chat.id,
-                     "В скором времени с вами свяжется оператор. В среднем это занимает 10-15мин\n"
+                     "В скором времени с вами свяжется оператор. В среднем это занимает 10-15мин\n" +
                      str(name) +
                      "\nЦена: " + str(priceuah) + "UAH")
     bot.send_message(697601461,
